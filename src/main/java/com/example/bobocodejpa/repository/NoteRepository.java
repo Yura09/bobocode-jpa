@@ -1,3 +1,4 @@
+/*
 package com.example.bobocodejpa.repository;
 
 import com.example.bobocodejpa.entity.Note;
@@ -7,3 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface NoteRepository extends JpaRepository<Note, Long> {
 }
+*/

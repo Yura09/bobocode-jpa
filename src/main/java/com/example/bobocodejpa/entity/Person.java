@@ -1,3 +1,4 @@
+/*
 package com.example.bobocodejpa.entity;
 
 import lombok.*;
@@ -25,3 +26,4 @@ public class Person {
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     List<Note> notes = new ArrayList<>();
 }
+*/
