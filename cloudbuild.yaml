@@ -1,4 +1,7 @@
 steps:
+  - name: maven:3.8.3-openjdk-11
+    entrypoint: mvn
+    args: [ "package", "-Dmaven.test.skip=true" ]
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
     args: [ 'build', '-t', 'us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa', '.' ]
