@@ -20,7 +20,7 @@ public class NoteController {
     public List<Note> findAll() {
         log.info("Getting notes");
 
-        return List.of(Note.builder().id(1L).body("note 1").build(), Note.builder().id(2L).body("note 2").build());
+        return List.of(Note.builder().id(1L).body("note 1").build(), Note.builder().id(2L).body("note 2").build(),Note.builder().id(3L).body("note 3").build());
     }
 
 }
