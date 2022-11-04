@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: bobocode-jpa
-          image: us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:v1
+          image: us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:v2
           ports:
             - containerPort: 8080
           env:
