@@ -4,7 +4,7 @@ steps:
     args: [ "package", "-Dmaven.test.skip=true" ]
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:v2', '.' ]
+    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:v3', '.' ]
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'push','us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:v2' ]
+    args: [ 'push','us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:v3' ]
