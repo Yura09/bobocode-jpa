@@ -1,9 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bobocode-jpa-deployment
+  name: bobocode-jpa
+  labels:
+    app: bobocode-jpa
 spec:
-  replicas: 2
   selector:
     matchLabels:
       app: bobocode-jpa
@@ -14,9 +15,7 @@ spec:
     spec:
       containers:
         - name: bobocode-jpa
-          image: us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:v2
+          image: us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:v3
           ports:
             - containerPort: 8080
-          env:
-            - name: PORT
-              value: "8080"
+              protocol: TCP

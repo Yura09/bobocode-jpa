@@ -4,7 +4,15 @@ steps:
     args: [ "package", "-Dmaven.test.skip=true" ]
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:v3', '.' ]
+    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:$SHORT_SHA', '.' ]
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'push','us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:v3' ]
+    args: [ 'push','us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:$SHORT_SHA' ]
+  # deploy container image to GKE
+  - name: "gcr.io/cloud-builders/gke-deploy"
+    args:
+      - run
+      - --filename=deployment.yaml
+      - --image=us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:$SHORT_SHA
+      - --location=us-central1
+      - --cluster=bobocode-jpa-cluster
