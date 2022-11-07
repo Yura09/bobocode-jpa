@@ -5,6 +5,7 @@ import com.example.bobocodejpa.repository.NoteRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +24,7 @@ public class NoteController {
     }
 
     @GetMapping("/{id}")
-    public Note findById(Long id) {
+    public Note findById(@PathVariable Long id) {
         return noteRepository.findById(id).orElse(Note.builder().id(100L).body("default note").build());
     }
 
