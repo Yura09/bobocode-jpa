@@ -6,21 +6,19 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-/*
 import javax.persistence.*;
 
 @Entity
 @Table(name = "notes")
-*/
- @NoArgsConstructor
- @AllArgsConstructor
- @Getter
- @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Builder
 public class Note {
-   // @Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String body;
 
     //@ManyToOne(optional = false)

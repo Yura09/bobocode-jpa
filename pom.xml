@@ -15,6 +15,7 @@
     <description>bobocode-jpa</description>
     <properties>
         <java.version>11</java.version>
+        <liquibase.core.version>4.17.1</liquibase.core.version>
         <spring.cloud.dependencies.version>2021.0.1</spring.cloud.dependencies.version>
         <spring.cloud.gcp.dependencies.version>1.2.8.RELEASE</spring.cloud.gcp.dependencies.version>
     </properties>
@@ -46,6 +47,15 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-gcp-starter-sql-postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.core.version}</version>
         </dependency>
     </dependencies>
     <!-- Add Spring Cloud GCP Dependency BOM -->

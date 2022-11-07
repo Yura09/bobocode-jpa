@@ -1,6 +1,7 @@
 package com.example.bobocodejpa.controller;
 
 import com.example.bobocodejpa.entity.Note;
+import com.example.bobocodejpa.repository.NoteRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,13 +15,16 @@ import java.util.List;
 @AllArgsConstructor
 @Slf4j
 public class NoteController {
-    //  private NoteRepository noteRepository;
+    private NoteRepository noteRepository;
 
     @GetMapping
     public List<Note> findAll() {
-        log.info("Getting notes");
+        return noteRepository.findAll();
+    }
 
-        return List.of(Note.builder().id(1L).body("note 1").build(), Note.builder().id(2L).body("note 2").build(),Note.builder().id(3L).body("note 3").build());
+    @GetMapping("/{id}")
+    public Note findById(Long id) {
+        return noteRepository.findById(id).orElse(Note.builder().id(100L).body("default note").build());
     }
 
 }
