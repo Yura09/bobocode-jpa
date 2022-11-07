@@ -13,9 +13,34 @@ spec:
       labels:
         app: bobocode-jpa
     spec:
+      serviceAccountName: ksa-cloud-sql
       containers:
         - name: bobocode-jpa
           image: us-central1-docker.pkg.dev/final-challenge-sav/bobocode-jpa-docker-repo/bobocode-jpa:v3
           ports:
             - containerPort: 8080
               protocol: TCP
+          env:
+            - name: PORT
+              value: "8080"
+            - name: INSTANCE_CONNECTION_NAME
+              value: final-challenge-sav:us-central1:bobocode-jpa-sql
+            - name: DB_HOST
+              value: "127.0.0.1"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: gke-cloud-sql-secrets
+                  key: username
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: gke-cloud-sql-secrets
+                  key: password
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: gke-cloud-sql-secrets
+                  key: database
