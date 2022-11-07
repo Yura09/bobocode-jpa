@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Builder
 public class Note {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
     private String body;
