@@ -20,7 +20,6 @@ public class Note {
     private Long id;
     @Column(nullable = false)
     private String body;
-
     //@ManyToOne(optional = false)
     //@JoinColumn(name = "person_id")
     //private Person person;
